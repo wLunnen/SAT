@@ -4,3 +4,15 @@ C:\Users\student\Documents\Visual Studio 2017\Projects\10_PMD\SAT\SAT.DATA.EF\ob
 C:\Users\student\Documents\Visual Studio 2017\Projects\10_PMD\SAT\SAT.DATA.EF\obj\Debug\SAT.DATA.EF.csproj.CoreCompileInputs.cache
 C:\Users\student\Documents\Visual Studio 2017\Projects\10_PMD\SAT\SAT.DATA.EF\obj\Debug\SAT.DATA.EF.dll
 C:\Users\student\Documents\Visual Studio 2017\Projects\10_PMD\SAT\SAT.DATA.EF\obj\Debug\SAT.DATA.EF.pdb
+C:\Users\student\Documents\Visual Studio 2017\Projects\11_PMD\SAT\src\SAT.DATA.EF\bin\Debug\SAT.DATA.EF.dll.config
+C:\Users\student\Documents\Visual Studio 2017\Projects\11_PMD\SAT\src\SAT.DATA.EF\bin\Debug\SAT.DATA.EF.dll
+C:\Users\student\Documents\Visual Studio 2017\Projects\11_PMD\SAT\src\SAT.DATA.EF\bin\Debug\SAT.DATA.EF.pdb
+C:\Users\student\Documents\Visual Studio 2017\Projects\11_PMD\SAT\src\SAT.DATA.EF\bin\Debug\EntityFramework.dll
+C:\Users\student\Documents\Visual Studio 2017\Projects\11_PMD\SAT\src\SAT.DATA.EF\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\student\Documents\Visual Studio 2017\Projects\11_PMD\SAT\src\SAT.DATA.EF\bin\Debug\EntityFramework.xml
+C:\Users\student\Documents\Visual Studio 2017\Projects\11_PMD\SAT\src\SAT.DATA.EF\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\student\Documents\Visual Studio 2017\Projects\11_PMD\SAT\src\SAT.DATA.EF\obj\Debug\SAT.DATA.EF.csprojAssemblyReference.cache
+C:\Users\student\Documents\Visual Studio 2017\Projects\11_PMD\SAT\src\SAT.DATA.EF\obj\Debug\SAT.DATA.EF.csproj.CoreCompileInputs.cache
+C:\Users\student\Documents\Visual Studio 2017\Projects\11_PMD\SAT\src\SAT.DATA.EF\obj\Debug\SAT.DATA.EF.csproj.CopyComplete
+C:\Users\student\Documents\Visual Studio 2017\Projects\11_PMD\SAT\src\SAT.DATA.EF\obj\Debug\SAT.DATA.EF.dll
+C:\Users\student\Documents\Visual Studio 2017\Projects\11_PMD\SAT\src\SAT.DATA.EF\obj\Debug\SAT.DATA.EF.pdb

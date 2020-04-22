@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SATModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Courses">
+    <Key>
+      <PropertyRef Name="CourseId" />
+    </Key>
+    <Property Name="CourseId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CourseName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CourseDescription" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CreditHours" Type="tinyint" Nullable="false" />
+    <Property Name="Curriculum" Type="nvarchar" MaxLength="250" />
+    <Property Name="Notes" Type="nvarchar" MaxLength="500" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Enrollments">
+    <Key>
+      <PropertyRef Name="EnrollmentID" />
+    </Key>
+    <Property Name="EnrollmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StudentId" Type="int" Nullable="false" />
+    <Property Name="ScheduleClassId" Type="int" Nullable="false" />
+    <Property Name="EnrollmentDate" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ScheduledClasses">
+    <Key>
+      <PropertyRef Name="ScheduledClassId" />
+    </Key>
+    <Property Name="ScheduledClassId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CourseId" Type="int" Nullable="false" />
+    <Property Name="StartDate" Type="date" Nullable="false" />
+    <Property Name="EndDate" Type="date" Nullable="false" />
+    <Property Name="InstructorName" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="Location" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="SCSID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ScheduledClassStatuses">
+    <Key>
+      <PropertyRef Name="SCSID" />
+    </Key>
+    <Property Name="SCSID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SCSName" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Students">
+    <Key>
+      <PropertyRef Name="StudentId" />
+    </Key>
+    <Property Name="StudentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Major" Type="nvarchar" MaxLength="15" />
+    <Property Name="Address" Type="nvarchar" MaxLength="50" />
+    <Property Name="City" Type="nvarchar" MaxLength="25" />
+    <Property Name="State" Type="char" MaxLength="2" />
+    <Property Name="ZipCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="13" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PhotoUrl" Type="nvarchar" MaxLength="100" />
+    <Property Name="SSID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StudentStatuses">
+    <Key>
+      <PropertyRef Name="SSID" />
+    </Key>
+    <Property Name="SSID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SSName" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="SSDescription" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <Association Name="FK_Enrollments_ScheduledClasses">
+    <End Role="ScheduledClasses" Type="Self.ScheduledClasses" Multiplicity="1" />
+    <End Role="Enrollments" Type="Self.Enrollments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ScheduledClasses">
+        <PropertyRef Name="ScheduledClassId" />
+      </Principal>
+      <Dependent Role="Enrollments">
+        <PropertyRef Name="ScheduleClassId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Enrollments_Students">
+    <End Role="Students" Type="Self.Students" Multiplicity="1" />
+    <End Role="Enrollments" Type="Self.Enrollments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Students">
+        <PropertyRef Name="StudentId" />
+      </Principal>
+      <Dependent Role="Enrollments">
+        <PropertyRef Name="StudentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ScheduledClasses_Courses">
+    <End Role="Courses" Type="Self.Courses" Multiplicity="1" />
+    <End Role="ScheduledClasses" Type="Self.ScheduledClasses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Courses">
+        <PropertyRef Name="CourseId" />
+      </Principal>
+      <Dependent Role="ScheduledClasses">
+        <PropertyRef Name="CourseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ScheduledClasses_ScheduledClassStatuses">
+    <End Role="ScheduledClassStatuses" Type="Self.ScheduledClassStatuses" Multiplicity="1" />
+    <End Role="ScheduledClasses" Type="Self.ScheduledClasses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ScheduledClassStatuses">
+        <PropertyRef Name="SCSID" />
+      </Principal>
+      <Dependent Role="ScheduledClasses">
+        <PropertyRef Name="SCSID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Students_StudentStatuses">
+    <End Role="StudentStatuses" Type="Self.StudentStatuses" Multiplicity="1" />
+    <End Role="Students" Type="Self.Students" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StudentStatuses">
+        <PropertyRef Name="SSID" />
+      </Principal>
+      <Dependent Role="Students">
+        <PropertyRef Name="SSID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SATModelStoreContainer">
+    <EntitySet Name="Courses" EntityType="Self.Courses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Enrollments" EntityType="Self.Enrollments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ScheduledClasses" EntityType="Self.ScheduledClasses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ScheduledClassStatuses" EntityType="Self.ScheduledClassStatuses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StudentStatuses" EntityType="Self.StudentStatuses" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Enrollments_ScheduledClasses" Association="Self.FK_Enrollments_ScheduledClasses">
+      <End Role="ScheduledClasses" EntitySet="ScheduledClasses" />
+      <End Role="Enrollments" EntitySet="Enrollments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Enrollments_Students" Association="Self.FK_Enrollments_Students">
+      <End Role="Students" EntitySet="Students" />
+      <End Role="Enrollments" EntitySet="Enrollments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ScheduledClasses_Courses" Association="Self.FK_ScheduledClasses_Courses">
+      <End Role="Courses" EntitySet="Courses" />
+      <End Role="ScheduledClasses" EntitySet="ScheduledClasses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ScheduledClasses_ScheduledClassStatuses" Association="Self.FK_ScheduledClasses_ScheduledClassStatuses">
+      <End Role="ScheduledClassStatuses" EntitySet="ScheduledClassStatuses" />
+      <End Role="ScheduledClasses" EntitySet="ScheduledClasses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Students_StudentStatuses" Association="Self.FK_Students_StudentStatuses">
+      <End Role="StudentStatuses" EntitySet="StudentStatuses" />
+      <End Role="Students" EntitySet="Students" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

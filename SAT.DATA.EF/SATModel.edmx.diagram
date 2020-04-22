@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="04f97098950e45858183f0d363d0d4ac" Name="Diagram1">
+        <EntityTypeShape EntityType="SATModel.Course" Width="1.5" PointX="4.375" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SATModel.Enrollment" Width="1.5" PointX="2.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SATModel.ScheduledClass" Width="1.5" PointX="2.375" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SATModel.ScheduledClassStatus" Width="2.125" PointX="2" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SATModel.Student" Width="1.5" PointX="0.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SATModel.StudentStatus" Width="1.5" PointX="0.5" PointY="4.5" IsExpanded="true" />
+        <AssociationConnector Association="SATModel.FK_ScheduledClasses_Courses" ManuallyRouted="false" />
+        <AssociationConnector Association="SATModel.FK_Enrollments_ScheduledClasses" ManuallyRouted="false" />
+        <AssociationConnector Association="SATModel.FK_Enrollments_Students" ManuallyRouted="false" />
+        <AssociationConnector Association="SATModel.FK_ScheduledClasses_ScheduledClassStatuses" ManuallyRouted="false" />
+        <AssociationConnector Association="SATModel.FK_Students_StudentStatuses" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

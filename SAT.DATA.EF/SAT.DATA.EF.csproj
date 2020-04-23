@@ -57,6 +57,9 @@
       <DependentUpon>SATModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Metadata\CourseMetadata.cs" />
+    <Compile Include="Metadata\EnrollmentMetadata.cs" />
+    <Compile Include="Metadata\ScheduledClassMetadata.cs" />
+    <Compile Include="Metadata\ScheduledClassStatusMetadata.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SATModel.Context.cs">
       <AutoGen>True</AutoGen>

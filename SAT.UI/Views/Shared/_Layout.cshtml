@@ -83,14 +83,18 @@
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="~/Content/admissions.html" class="nav-link text-left">Admissions</a>
+                                    <a href="~/Content/contact.html" class="nav-link text-left">Courses</a>
                                 </li>
                                 <li>
-                                    <a href="~/Content/courses.html" class="nav-link text-left">Courses</a>
+                                    <a href="~/Content/contact.html" class="nav-link text-left">Enrollments</a>
                                 </li>
                                 <li>
-                                    <a href="~/Content/contact.html" class="nav-link text-left">Contact</a>
+                                    <a @Html.ActionLink("Scheduled Classes", "Index", "ScheduledClasses")</a>
                                 </li>
+                                <li>
+                                    <a @Html.ActionLink("Students", "Index", "Students")</a>
+                                </li>
+                                
                             </ul>                                                                                                                                                                                                                                                                                          </ul>
                         </nav>
 
@@ -112,9 +116,9 @@
 
         </header>
 
-
-   @RenderBody()
-
+        <div class="container" style="margin-top: 125px;">
+            @RenderBody()
+        </div>
 
         <div class="footer">
             <div class="container">

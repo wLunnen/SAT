@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<SAT.DATA.EF.Course>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Courses";
 }
 
-<h2>Index</h2>
+<h2>@ViewBag.Title</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -35,10 +35,10 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.CourseeName)
+            @Html.DisplayFor(modelItem => item.CourseName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.CourseeDescription)
+            @Html.DisplayFor(modelItem => item.CourseDescription)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.CreditHours)
@@ -53,9 +53,9 @@
             @Html.DisplayFor(modelItem => item.IsActive)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CourseeId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CourseeId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CourseeId })
+            @Html.ActionLink("Edit", "Edit", new { id=item.CourseId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CourseId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CourseId })
         </td>
     </tr>
 }

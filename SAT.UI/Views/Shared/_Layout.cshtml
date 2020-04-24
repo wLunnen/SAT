@@ -49,8 +49,8 @@
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-9 d-none d-lg-block">
-                        <a href="#" class="small mr-3"><span class="icon-question-circle-o mr-2"></span> Have a questions?</a>
-                        <a href="#" class="small mr-3"><span class="icon-phone2 mr-2"></span> 10 20 123 456</a>
+                        @*<a href="#" class="small mr-3"><span class="icon-question-circle-o mr-2"></span> Have a questions?</a>*@
+                        <a href="#" class="small mr-3"><span class="icon-phone2 mr-2"></span> +1 314-555-1212</a>
                         <a href="#" class="small mr-3"><span class="icon-envelope-o mr-2"></span> info@mydomain.com</a>
                     </div>
                     <div class="col-lg-3 text-right">
@@ -65,37 +65,37 @@
             <div class="container">
                 <div class="d-flex align-items-center">
                     <div class="site-logo">
-                        <a href="~/Content/index.html" class="d-block">
+                        <a href="@Url.Action("Index", "Home")">
                             <img src="~/Content/images/logo.jpg" alt="Image" class="img-fluid">
                         </a>
                     </div>
                     <div class="mr-auto">
                         <nav class="site-navigation position-relative text-right" role="navigation">
                             <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-                                <li class="active">
-                                    <a href="~/Content/index.html" class="nav-link text-left">Home</a>
-                                </li>
-                                <li class="has-children">
-                                    <a href="~/Content/about.html" class="nav-link text-left">About Us</a>
-                                    <ul class="dropdown">
-                                        <li><a href="~/Content/teachers.html">Our Teachers</a></li>
-                                        <li><a href="~/Content/about.html">Our School</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="~/Content/contact.html" class="nav-link text-left">Courses</a>
+                                @*<li class="active">
+                                        <a href="~/Content/index.html" class="nav-link text-left">Home</a>
+                                    </li>
+                                    <li class="has-children">
+                                        <a href="~/Content/about.html" class="nav-link text-left">About Us</a>
+                                        <ul class="dropdown">
+                                            <li><a href="~/Content/teachers.html">Our Teachers</a></li>
+                                            <li><a href="~/Content/about.html">Our School</a></li>
+                                        </ul>*@
                                 </li>
                                 <li>
-                                    <a href="~/Content/contact.html" class="nav-link text-left">Enrollments</a>
+                                    <a>@Html.ActionLink("Courses", "Index", "Courses")</a>
                                 </li>
                                 <li>
-                                    <a @Html.ActionLink("Scheduled Classes", "Index", "ScheduledClasses")</a>
+                                    <a>@Html.ActionLink("Erollments", "Index", "Enrollments")</a>
                                 </li>
                                 <li>
-                                    <a @Html.ActionLink("Students", "Index", "Students")</a>
+                                    <a>@Html.ActionLink("Scheduled Classes", "Index", "ScheduledClasses")</a>
                                 </li>
-                                
-                            </ul>                                                                                                                                                                                                                                                                                          </ul>
+                                <li>
+                                    <a>@Html.ActionLink("Students", "Index", "Students")</a>
+                                </li>
+
+                            </ul>
                         </nav>
 
                     </div>
@@ -197,11 +197,13 @@
     <script src="~/Content/js/jquery.fancybox.min.js"></script>
     <script src="~/Content/js/jquery.sticky.js"></script>
     <script src="~/Content/js/jquery.mb.YTPlayer.min.js"></script>
-
-
-
-
     <script src="~/Content/js/main.js"></script>
+
+    @Scripts.Render("~/bundles/template")
+
+    @RenderSection("scripts", required: false)
+
+
 
 </body>
 

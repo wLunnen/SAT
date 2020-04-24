@@ -171,6 +171,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RolesAdminController.cs" />
+    <Compile Include="Controllers\StudentsController.cs" />
     <Compile Include="Controllers\UserAdminController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -183,10 +184,15 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\about.html" />
+    <Content Include="Content\admissions.html" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\contact.html" />
+    <Content Include="Content\course-single.html" />
+    <Content Include="Content\courses.html" />
     <Content Include="Content\css\aos.css" />
     <Content Include="Content\css\bootstrap-datepicker.css" />
     <Content Include="Content\css\bootstrap.min.css" />
@@ -228,6 +234,7 @@
     <Content Include="Content\images\person_2.jpg" />
     <Content Include="Content\images\person_3.jpg" />
     <Content Include="Content\images\person_4.jpg" />
+    <Content Include="Content\index.html" />
     <Content Include="Content\js\aos.js" />
     <Content Include="Content\js\bootstrap-datepicker.min.js" />
     <Content Include="Content\js\bootstrap.min.js" />
@@ -247,6 +254,9 @@
     <Content Include="Content\js\popper.min.js" />
     <Content Include="Content\js\slick.min.js" />
     <Content Include="Content\js\typed.js" />
+    <Content Include="Content\login.html" />
+    <Content Include="Content\news-single.html" />
+    <Content Include="Content\register.html" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -589,6 +599,11 @@
     <Content Include="Views\RolesAdmin\Create.cshtml" />
     <Content Include="Views\Account\DisplayEmail.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Students\Create.cshtml" />
+    <Content Include="Views\Students\Delete.cshtml" />
+    <Content Include="Views\Students\Details.cshtml" />
+    <Content Include="Views\Students\Edit.cshtml" />
+    <Content Include="Views\Students\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -605,6 +620,12 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SAT.DATA.EF\SAT.DATA.EF.csproj">
+      <Project>{cc73f8fb-101c-4d6c-bdff-e19679323c2e}</Project>
+      <Name>SAT.DATA.EF</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

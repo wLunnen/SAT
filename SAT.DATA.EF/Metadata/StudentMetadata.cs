@@ -31,6 +31,14 @@ namespace SAT.DATA.EF.Metadata
         public string PhotoUrl { get; set; }
         [Required(ErrorMessage = "*Required")]
         public int SSID { get; set; }
+        [Required(ErrorMessage = "*Required")]
+        public string FullName
+        {
+            get
+            {
+                return FirstName + " " + LastName;
+            }
+        }
 
         //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         //public virtual ICollection<Enrollment> Enrollments { get; set; }

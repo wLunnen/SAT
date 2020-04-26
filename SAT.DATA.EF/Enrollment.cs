@@ -16,7 +16,7 @@ namespace SAT.DATA.EF
     {
         public int EnrollmentID { get; set; }
         public int StudentId { get; set; }
-        public int ScheduleClassId { get; set; }
+        public int ScheduledClassId { get; set; }
         public System.DateTime EnrollmentDate { get; set; }
     
         public virtual ScheduledClass ScheduledClass { get; set; }

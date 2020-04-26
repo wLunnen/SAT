@@ -18,7 +18,7 @@
     </Key>
     <Property Name="EnrollmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="StudentId" Type="int" Nullable="false" />
-    <Property Name="ScheduleClassId" Type="int" Nullable="false" />
+    <Property Name="ScheduledClassId" Type="int" Nullable="false" />
     <Property Name="EnrollmentDate" Type="date" Nullable="false" />
   </EntityType>
   <EntityType Name="ScheduledClasses">
@@ -73,7 +73,7 @@
         <PropertyRef Name="ScheduledClassId" />
       </Principal>
       <Dependent Role="Enrollments">
-        <PropertyRef Name="ScheduleClassId" />
+        <PropertyRef Name="ScheduledClassId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

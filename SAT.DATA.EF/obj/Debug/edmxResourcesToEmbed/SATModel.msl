@@ -19,7 +19,7 @@
         <MappingFragment StoreEntitySet="Enrollments">
           <ScalarProperty Name="EnrollmentID" ColumnName="EnrollmentID" />
           <ScalarProperty Name="StudentId" ColumnName="StudentId" />
-          <ScalarProperty Name="ScheduleClassId" ColumnName="ScheduleClassId" />
+          <ScalarProperty Name="ScheduledClassId" ColumnName="ScheduledClassId" />
           <ScalarProperty Name="EnrollmentDate" ColumnName="EnrollmentDate" />
         </MappingFragment>
       </EntityTypeMapping>

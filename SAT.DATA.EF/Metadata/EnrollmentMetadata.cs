@@ -20,7 +20,7 @@ namespace SAT.DATA.EF.Metadata
 
         [Required(ErrorMessage = "*Required")]
         [Display(Name = "Scheduled Class ID")]
-        public int ScheduleClassId { get; set; }
+        public int ScheduledClassId { get; set; }
 
         [Required(ErrorMessage = "*Required")]
         [Display(Name = "Enrollment Date")]

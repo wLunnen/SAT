@@ -23,7 +23,7 @@
           </Key>
           <Property Name="EnrollmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="StudentId" Type="int" Nullable="false" />
-          <Property Name="ScheduleClassId" Type="int" Nullable="false" />
+          <Property Name="ScheduledClassId" Type="int" Nullable="false" />
           <Property Name="EnrollmentDate" Type="date" Nullable="false" />
         </EntityType>
         <EntityType Name="ScheduledClasses">
@@ -78,7 +78,7 @@
               <PropertyRef Name="ScheduledClassId" />
             </Principal>
             <Dependent Role="Enrollments">
-              <PropertyRef Name="ScheduleClassId" />
+              <PropertyRef Name="ScheduledClassId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -182,7 +182,7 @@
           </Key>
           <Property Name="EnrollmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="StudentId" Type="Int32" Nullable="false" />
-          <Property Name="ScheduleClassId" Type="Int32" Nullable="false" />
+          <Property Name="ScheduledClassId" Type="Int32" Nullable="false" />
           <Property Name="EnrollmentDate" Type="DateTime" Nullable="false" Precision="0" />
           <NavigationProperty Name="ScheduledClass" Relationship="Self.FK_Enrollments_ScheduledClasses" FromRole="Enrollments" ToRole="ScheduledClasses" />
           <NavigationProperty Name="Student" Relationship="Self.FK_Enrollments_Students" FromRole="Enrollments" ToRole="Students" />
@@ -258,7 +258,7 @@
               <PropertyRef Name="ScheduledClassId" />
             </Principal>
             <Dependent Role="Enrollments">
-              <PropertyRef Name="ScheduleClassId" />
+              <PropertyRef Name="ScheduledClassId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -350,7 +350,7 @@
               <MappingFragment StoreEntitySet="Enrollments">
                 <ScalarProperty Name="EnrollmentID" ColumnName="EnrollmentID" />
                 <ScalarProperty Name="StudentId" ColumnName="StudentId" />
-                <ScalarProperty Name="ScheduleClassId" ColumnName="ScheduleClassId" />
+                <ScalarProperty Name="ScheduledClassId" ColumnName="ScheduledClassId" />
                 <ScalarProperty Name="EnrollmentDate" ColumnName="EnrollmentDate" />
               </MappingFragment>
             </EntityTypeMapping>

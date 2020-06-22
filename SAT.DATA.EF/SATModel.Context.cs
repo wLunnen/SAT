@@ -26,10 +26,10 @@ namespace SAT.DATA.EF
         }
     
         public virtual DbSet<Course> Courses { get; set; }
-        public virtual DbSet<Enrollment> Enrollments { get; set; }
         public virtual DbSet<ScheduledClass> ScheduledClasses { get; set; }
         public virtual DbSet<ScheduledClassStatus> ScheduledClassStatuses { get; set; }
         public virtual DbSet<Student> Students { get; set; }
         public virtual DbSet<StudentStatus> StudentStatuses { get; set; }
+        public virtual DbSet<Enrollment> Enrollments { get; set; }
     }
 }

@@ -14,16 +14,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Enrollments">
-      <EntityTypeMapping TypeName="SATModel.Enrollment">
-        <MappingFragment StoreEntitySet="Enrollments">
-          <ScalarProperty Name="EnrollmentID" ColumnName="EnrollmentID" />
-          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
-          <ScalarProperty Name="ScheduledClassId" ColumnName="ScheduledClassId" />
-          <ScalarProperty Name="EnrollmentDate" ColumnName="EnrollmentDate" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="ScheduledClasses">
       <EntityTypeMapping TypeName="SATModel.ScheduledClass">
         <MappingFragment StoreEntitySet="ScheduledClasses">
@@ -69,6 +59,16 @@
           <ScalarProperty Name="SSID" ColumnName="SSID" />
           <ScalarProperty Name="SSName" ColumnName="SSName" />
           <ScalarProperty Name="SSDescription" ColumnName="SSDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Enrollments">
+      <EntityTypeMapping TypeName="SATModel.Enrollment">
+        <MappingFragment StoreEntitySet="Enrollments">
+          <ScalarProperty Name="EnrollmentDate" ColumnName="EnrollmentDate" />
+          <ScalarProperty Name="ScheduledClassId" ColumnName="ScheduledClassId" />
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="EnrollmentId" ColumnName="EnrollmentId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

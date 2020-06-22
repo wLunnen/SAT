@@ -4,7 +4,7 @@
     <Key>
       <PropertyRef Name="CourseId" />
     </Key>
-    <Property Name="CourseId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CourseId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="CourseName" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="CourseDescription" Type="nvarchar(max)" Nullable="false" />
     <Property Name="CreditHours" Type="tinyint" Nullable="false" />
@@ -14,9 +14,9 @@
   </EntityType>
   <EntityType Name="Enrollments">
     <Key>
-      <PropertyRef Name="EnrollmentID" />
+      <PropertyRef Name="EnrollmentId" />
     </Key>
-    <Property Name="EnrollmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EnrollmentId" Type="int" Nullable="false" />
     <Property Name="StudentId" Type="int" Nullable="false" />
     <Property Name="ScheduledClassId" Type="int" Nullable="false" />
     <Property Name="EnrollmentDate" Type="date" Nullable="false" />
@@ -25,7 +25,7 @@
     <Key>
       <PropertyRef Name="ScheduledClassId" />
     </Key>
-    <Property Name="ScheduledClassId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ScheduledClassId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="CourseId" Type="int" Nullable="false" />
     <Property Name="StartDate" Type="date" Nullable="false" />
     <Property Name="EndDate" Type="date" Nullable="false" />
@@ -53,7 +53,7 @@
     <Property Name="State" Type="char" MaxLength="2" />
     <Property Name="ZipCode" Type="nvarchar" MaxLength="10" />
     <Property Name="Phone" Type="nvarchar" MaxLength="13" />
-    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="60" Nullable="false" />
     <Property Name="PhotoUrl" Type="nvarchar" MaxLength="100" />
     <Property Name="SSID" Type="int" Nullable="false" />
   </EntityType>

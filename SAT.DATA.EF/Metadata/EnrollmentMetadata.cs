@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 
 
-namespace SAT.DATA.EF.Metadata
+namespace SAT.DATA.EF
 {
     public class EnrollmentMetadata
     {
         [Required(ErrorMessage = "*Required")]
         [Display(Name = "Enrollment ID")]
-        public int EnrollmentID { get; set; }
+        public int EnrollmentId { get; set; }
 
         [Required(ErrorMessage = "*Required")]
         [Display(Name = "Student ID")]
@@ -29,5 +29,11 @@ namespace SAT.DATA.EF.Metadata
 
         //public virtual ScheduledClass ScheduledClass { get; set; }
         //public virtual Student Student { get; set; }
+    }
+
+    [MetadataType(typeof(EnrollmentMetadata))]
+    public partial class Enrollment
+    {
+
     }
 }

@@ -4,12 +4,12 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="SATModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="SATModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Courses">
           <Key>
             <PropertyRef Name="CourseId" />
           </Key>
-          <Property Name="CourseId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CourseId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="CourseName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="CourseDescription" Type="nvarchar(max)" Nullable="false" />
           <Property Name="CreditHours" Type="tinyint" Nullable="false" />
@@ -19,9 +19,9 @@
         </EntityType>
         <EntityType Name="Enrollments">
           <Key>
-            <PropertyRef Name="EnrollmentID" />
+            <PropertyRef Name="EnrollmentId" />
           </Key>
-          <Property Name="EnrollmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EnrollmentId" Type="int" Nullable="false" />
           <Property Name="StudentId" Type="int" Nullable="false" />
           <Property Name="ScheduledClassId" Type="int" Nullable="false" />
           <Property Name="EnrollmentDate" Type="date" Nullable="false" />
@@ -30,7 +30,7 @@
           <Key>
             <PropertyRef Name="ScheduledClassId" />
           </Key>
-          <Property Name="ScheduledClassId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ScheduledClassId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="CourseId" Type="int" Nullable="false" />
           <Property Name="StartDate" Type="date" Nullable="false" />
           <Property Name="EndDate" Type="date" Nullable="false" />
@@ -58,7 +58,7 @@
           <Property Name="State" Type="char" MaxLength="2" />
           <Property Name="ZipCode" Type="nvarchar" MaxLength="10" />
           <Property Name="Phone" Type="nvarchar" MaxLength="13" />
-          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="60" Nullable="false" />
           <Property Name="PhotoUrl" Type="nvarchar" MaxLength="100" />
           <Property Name="SSID" Type="int" Nullable="false" />
         </EntityType>
@@ -158,8 +158,7 @@
             <End Role="Students" EntitySet="Students" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SATModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -176,17 +175,6 @@
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="ScheduledClasses" Relationship="Self.FK_ScheduledClasses_Courses" FromRole="Courses" ToRole="ScheduledClasses" />
         </EntityType>
-        <EntityType Name="Enrollment">
-          <Key>
-            <PropertyRef Name="EnrollmentID" />
-          </Key>
-          <Property Name="EnrollmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="StudentId" Type="Int32" Nullable="false" />
-          <Property Name="ScheduledClassId" Type="Int32" Nullable="false" />
-          <Property Name="EnrollmentDate" Type="DateTime" Nullable="false" Precision="0" />
-          <NavigationProperty Name="ScheduledClass" Relationship="Self.FK_Enrollments_ScheduledClasses" FromRole="Enrollments" ToRole="ScheduledClasses" />
-          <NavigationProperty Name="Student" Relationship="Self.FK_Enrollments_Students" FromRole="Enrollments" ToRole="Students" />
-        </EntityType>
         <EntityType Name="ScheduledClass">
           <Key>
             <PropertyRef Name="ScheduledClassId" />
@@ -199,8 +187,8 @@
           <Property Name="Location" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="SCSID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Course" Relationship="Self.FK_ScheduledClasses_Courses" FromRole="ScheduledClasses" ToRole="Courses" />
-          <NavigationProperty Name="Enrollments" Relationship="Self.FK_Enrollments_ScheduledClasses" FromRole="ScheduledClasses" ToRole="Enrollments" />
           <NavigationProperty Name="ScheduledClassStatus" Relationship="Self.FK_ScheduledClasses_ScheduledClassStatuses" FromRole="ScheduledClasses" ToRole="ScheduledClassStatuses" />
+          <NavigationProperty Name="Enrollments" Relationship="SATModel.FK_Enrollments_ScheduledClasses" FromRole="ScheduledClass" ToRole="Enrollment" />
         </EntityType>
         <EntityType Name="ScheduledClassStatus">
           <Key>
@@ -223,11 +211,11 @@
           <Property Name="State" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
           <Property Name="ZipCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="Phone" Type="String" MaxLength="13" FixedLength="false" Unicode="true" />
-          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="PhotoUrl" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="SSID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Enrollments" Relationship="Self.FK_Enrollments_Students" FromRole="Students" ToRole="Enrollments" />
           <NavigationProperty Name="StudentStatus" Relationship="Self.FK_Students_StudentStatuses" FromRole="Students" ToRole="StudentStatuses" />
+          <NavigationProperty Name="Enrollments" Relationship="SATModel.FK_Enrollments_Students" FromRole="Student" ToRole="Enrollment" />
         </EntityType>
         <EntityType Name="StudentStatus">
           <Key>
@@ -247,30 +235,6 @@
             </Principal>
             <Dependent Role="ScheduledClasses">
               <PropertyRef Name="CourseId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Enrollments_ScheduledClasses">
-          <End Role="ScheduledClasses" Type="Self.ScheduledClass" Multiplicity="1" />
-          <End Role="Enrollments" Type="Self.Enrollment" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ScheduledClasses">
-              <PropertyRef Name="ScheduledClassId" />
-            </Principal>
-            <Dependent Role="Enrollments">
-              <PropertyRef Name="ScheduledClassId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Enrollments_Students">
-          <End Role="Students" Type="Self.Student" Multiplicity="1" />
-          <End Role="Enrollments" Type="Self.Enrollment" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Students">
-              <PropertyRef Name="StudentId" />
-            </Principal>
-            <Dependent Role="Enrollments">
-              <PropertyRef Name="StudentId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -300,7 +264,6 @@
         </Association>
         <EntityContainer Name="SATEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Courses" EntityType="SATModel.Course" />
-          <EntitySet Name="Enrollments" EntityType="Self.Enrollment" />
           <EntitySet Name="ScheduledClasses" EntityType="Self.ScheduledClass" />
           <EntitySet Name="ScheduledClassStatuses" EntityType="Self.ScheduledClassStatus" />
           <EntitySet Name="Students" EntityType="Self.Student" />
@@ -308,14 +271,6 @@
           <AssociationSet Name="FK_ScheduledClasses_Courses" Association="Self.FK_ScheduledClasses_Courses">
             <End Role="Courses" EntitySet="Courses" />
             <End Role="ScheduledClasses" EntitySet="ScheduledClasses" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Enrollments_ScheduledClasses" Association="Self.FK_Enrollments_ScheduledClasses">
-            <End Role="ScheduledClasses" EntitySet="ScheduledClasses" />
-            <End Role="Enrollments" EntitySet="Enrollments" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Enrollments_Students" Association="Self.FK_Enrollments_Students">
-            <End Role="Students" EntitySet="Students" />
-            <End Role="Enrollments" EntitySet="Enrollments" />
           </AssociationSet>
           <AssociationSet Name="FK_ScheduledClasses_ScheduledClassStatuses" Association="Self.FK_ScheduledClasses_ScheduledClassStatuses">
             <End Role="ScheduledClassStatuses" EntitySet="ScheduledClassStatuses" />
@@ -325,7 +280,51 @@
             <End Role="StudentStatuses" EntitySet="StudentStatuses" />
             <End Role="Students" EntitySet="Students" />
           </AssociationSet>
+          <EntitySet Name="Enrollments" EntityType="SATModel.Enrollment" />
+          <AssociationSet Name="FK_Enrollments_ScheduledClasses" Association="SATModel.FK_Enrollments_ScheduledClasses">
+            <End Role="ScheduledClass" EntitySet="ScheduledClasses" />
+            <End Role="Enrollment" EntitySet="Enrollments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Enrollments_Students" Association="SATModel.FK_Enrollments_Students">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="Enrollment" EntitySet="Enrollments" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Enrollment">
+          <Key>
+            <PropertyRef Name="EnrollmentId" />
+          </Key>
+          <Property Name="EnrollmentId" Type="Int32" Nullable="false" />
+          <Property Name="StudentId" Type="Int32" Nullable="false" />
+          <Property Name="ScheduledClassId" Type="Int32" Nullable="false" />
+          <Property Name="EnrollmentDate" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="ScheduledClass" Relationship="SATModel.FK_Enrollments_ScheduledClasses" FromRole="Enrollment" ToRole="ScheduledClass" />
+          <NavigationProperty Name="Student" Relationship="SATModel.FK_Enrollments_Students" FromRole="Enrollment" ToRole="Student" />
+        </EntityType>
+        <Association Name="FK_Enrollments_ScheduledClasses">
+          <End Type="SATModel.ScheduledClass" Role="ScheduledClass" Multiplicity="1" />
+          <End Type="SATModel.Enrollment" Role="Enrollment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ScheduledClass">
+              <PropertyRef Name="ScheduledClassId" />
+            </Principal>
+            <Dependent Role="Enrollment">
+              <PropertyRef Name="ScheduledClassId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Enrollments_Students">
+          <End Type="SATModel.Student" Role="Student" Multiplicity="1" />
+          <End Type="SATModel.Enrollment" Role="Enrollment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="StudentId" />
+            </Principal>
+            <Dependent Role="Enrollment">
+              <PropertyRef Name="StudentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -342,16 +341,6 @@
                 <ScalarProperty Name="Curriculum" ColumnName="Curriculum" />
                 <ScalarProperty Name="Notes" ColumnName="Notes" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Enrollments">
-            <EntityTypeMapping TypeName="SATModel.Enrollment">
-              <MappingFragment StoreEntitySet="Enrollments">
-                <ScalarProperty Name="EnrollmentID" ColumnName="EnrollmentID" />
-                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
-                <ScalarProperty Name="ScheduledClassId" ColumnName="ScheduledClassId" />
-                <ScalarProperty Name="EnrollmentDate" ColumnName="EnrollmentDate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -400,6 +389,16 @@
                 <ScalarProperty Name="SSID" ColumnName="SSID" />
                 <ScalarProperty Name="SSName" ColumnName="SSName" />
                 <ScalarProperty Name="SSDescription" ColumnName="SSDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Enrollments">
+            <EntityTypeMapping TypeName="SATModel.Enrollment">
+              <MappingFragment StoreEntitySet="Enrollments">
+                <ScalarProperty Name="EnrollmentDate" ColumnName="EnrollmentDate" />
+                <ScalarProperty Name="ScheduledClassId" ColumnName="ScheduledClassId" />
+                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+                <ScalarProperty Name="EnrollmentId" ColumnName="EnrollmentId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

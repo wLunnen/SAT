@@ -49,7 +49,7 @@ namespace SAT.UI.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EnrollmentID,StudentId,ScheduledClassId,EnrollmentDate")] Enrollment enrollment)
+        public ActionResult Create([Bind(Include = "EnrollmentId,StudentId,ScheduledClassId,EnrollmentDate")] Enrollment enrollment)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +85,7 @@ namespace SAT.UI.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "EnrollmentID,StudentId,ScheduledClassId,EnrollmentDate")] Enrollment enrollment)
+        public ActionResult Edit([Bind(Include = "EnrollmentId,StudentId,ScheduledClassId,EnrollmentDate")] Enrollment enrollment)
         {
             if (ModelState.IsValid)
             {

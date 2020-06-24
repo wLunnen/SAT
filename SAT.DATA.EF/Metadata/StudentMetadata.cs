@@ -30,9 +30,10 @@ namespace SAT.DATA.EF
         public string Email { get; set; }
         public string PhotoUrl { get; set; }
         [Required(ErrorMessage = "*Required")]
+        [Display(Name = "Status")]
         public int SSID { get; set; }
         //[Required(ErrorMessage = "*Required")]
-        
+
 
         //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         //public virtual ICollection<Enrollment> Enrollments { get; set; }
@@ -48,5 +49,15 @@ namespace SAT.DATA.EF
                 return FirstName + " " + LastName;
             }
         }
+
+        [Display(Name = "Full Address")]
+        public string FullAddress
+        {
+            get
+            {
+                return Address + ", " + City + ", " + State + " " + ZipCode;
+            }
+        }
     }
+
 }

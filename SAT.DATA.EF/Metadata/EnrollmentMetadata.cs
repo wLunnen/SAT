@@ -25,10 +25,17 @@ namespace SAT.DATA.EF
         [Required(ErrorMessage = "*Required")]
         [Display(Name = "Enrollment Date")]
         public System.DateTime EnrollmentDate { get; set; }
-        
 
-        //public virtual ScheduledClass ScheduledClass { get; set; }
-        //public virtual Student Student { get; set; }
+        [Required(ErrorMessage = "*Required")]
+        [Display(Name = "Instructor Name")]
+        public virtual ScheduledClass ScheduledClass { get; set; }
+
+        [Required(ErrorMessage = "*Required")]
+        [Display(Name = "First Name")]
+        public virtual Student Student { get; set; }
+
+
+
     }
 
     [MetadataType(typeof(EnrollmentMetadata))]
@@ -36,4 +43,24 @@ namespace SAT.DATA.EF
     {
 
     }
+    //public class ScheduledClasses
+    //{
+    
+    //public string InstructorName { get; set; }
+    //}
+    //[MetadataType(typeof(EnrollmentMetadata))]
+    //public partial class ScheduledClass
+    //{
+
+    //}
+    //public class Students
+    //{
+
+    //    public string FirstName { get; set; }
+    //}
+    //[MetadataType(typeof(EnrollmentMetadata))]
+    //public partial class Student
+    //{
+
+    //}
 }

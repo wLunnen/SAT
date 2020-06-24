@@ -18,7 +18,7 @@
             @Html.DisplayNameFor(model => model.ScheduledClass.InstructorName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Student.FirstName)
+            @Html.DisplayNameFor(model => model.Student.FullName)
         </th>
         <th></th>
     </tr>
@@ -32,7 +32,7 @@
             @Html.DisplayFor(modelItem => item.ScheduledClass.InstructorName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Student.FirstName)
+            @Html.DisplayFor(modelItem => item.Student.FullName)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.EnrollmentId }) |

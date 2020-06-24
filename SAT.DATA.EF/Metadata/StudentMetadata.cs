@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 
 
-namespace SAT.DATA.EF.Metadata
+namespace SAT.DATA.EF
 {
-    public class Student
+    public class StudentMetadata
     {
         [Required(ErrorMessage = "*Required")]
         public int StudentId { get; set; }
@@ -31,7 +31,16 @@ namespace SAT.DATA.EF.Metadata
         public string PhotoUrl { get; set; }
         [Required(ErrorMessage = "*Required")]
         public int SSID { get; set; }
-        [Required(ErrorMessage = "*Required")]
+        //[Required(ErrorMessage = "*Required")]
+        
+
+        //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        //public virtual ICollection<Enrollment> Enrollments { get; set; }
+    }
+    [MetadataType(typeof(StudentMetadata))]
+    public partial class Student
+    {
+        [Display(Name = "Student Name")]
         public string FullName
         {
             get
@@ -39,8 +48,5 @@ namespace SAT.DATA.EF.Metadata
                 return FirstName + " " + LastName;
             }
         }
-
-        //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        //public virtual ICollection<Enrollment> Enrollments { get; set; }
     }
 }
